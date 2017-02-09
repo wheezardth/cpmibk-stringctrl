@@ -29,7 +29,7 @@ void reportValues()
         if(currentReadout[i] < 10){Serial.print("00");}
         if(currentReadout[i] >= 10 && currentReadout[i] < 100){Serial.print("0");}
         Serial.print(currentReadout[i]); Serial.print("|");
-        } 
+        }
       Serial.println();
     }
   }
@@ -220,7 +220,7 @@ void chSel(byte channel)
 }
 
 
- void lineScan()
+void lineScan()
 {
   if (scanTimeout >= scanDelay && currentSensor <= 10)
   {
@@ -260,15 +260,15 @@ byte identifyClosest(){
 boolean checkPresence(){
 byte thresholdNear = minRange;  //eg. 20
 if(
-    currentReadout[1] < thresholdNear && 
-    currentReadout[2] < thresholdNear && 
-    currentReadout[3] < thresholdNear && 
-    currentReadout[4] < thresholdNear && 
-    currentReadout[5] < thresholdNear && 
-    currentReadout[6] < thresholdNear && 
-    currentReadout[7] < thresholdNear && 
-    currentReadout[8] < thresholdNear && 
-    currentReadout[9] < thresholdNear && 
+    currentReadout[1] < thresholdNear &&
+    currentReadout[2] < thresholdNear &&
+    currentReadout[3] < thresholdNear &&
+    currentReadout[4] < thresholdNear &&
+    currentReadout[5] < thresholdNear &&
+    currentReadout[6] < thresholdNear &&
+    currentReadout[7] < thresholdNear &&
+    currentReadout[8] < thresholdNear &&
+    currentReadout[9] < thresholdNear &&
     currentReadout[10] < thresholdNear
    ){return 0;}else{return 1;}
 }
@@ -277,16 +277,15 @@ boolean checkPresence()
   { byte checksum = 0;
     if(currentReadout[1] > minRange){checksum++;}
     if(currentReadout[2] > minRange){checksum++;}
-    if(currentReadout[3] > minRange){checksum++;} 
-    if(currentReadout[4] > minRange){checksum++;} 
-    if(currentReadout[5] > minRange){checksum++;} 
-    if(currentReadout[6] > minRange){checksum++;} 
-    if(currentReadout[7] > minRange){checksum++;} 
-    if(currentReadout[8] > minRange){checksum++;} 
+    if(currentReadout[3] > minRange){checksum++;}
+    if(currentReadout[4] > minRange){checksum++;}
+    if(currentReadout[5] > minRange){checksum++;}
+    if(currentReadout[6] > minRange){checksum++;}
+    if(currentReadout[7] > minRange){checksum++;}
+    if(currentReadout[8] > minRange){checksum++;}
     if(currentReadout[9] > minRange){checksum++;}
     if(currentReadout[10] > minRange){checksum++;}
-    //Serial.print("Checksum = "); 
+    //Serial.print("Checksum = ");
     Serial.print(checksum);
     if(checksum != 0){return 1;} else {return 0;}
   }
-
