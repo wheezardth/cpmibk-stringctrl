@@ -233,7 +233,6 @@ void lineScan()
 }
 
 
-
 void lineScanBlocking()
 {
   for(byte sensor = 1; sensor < 11; sensor++)

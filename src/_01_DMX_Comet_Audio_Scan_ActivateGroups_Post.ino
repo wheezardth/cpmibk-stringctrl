@@ -7,11 +7,6 @@
 #include <NewPing.h>
 #include <elapsedMillis.h>
 
-// #include <audioFunctions.h>
-// #include <groupFunctions.h>
-// #include <pulseFunctions.h>
-// #include <scanningFunctions.h>
-
 AudioPlaySdWav           playWav1;
 AudioOutputI2S           audioOutput;
 AudioConnection          patchCord1(playWav1, 0, audioOutput, 0);
@@ -41,28 +36,28 @@ AudioControlSGTL5000     sgtl5000_1;
 #define sonicRX 16
 
 
-  int maxOut = 255;
-  int animSpeed = 1000;
-  unsigned long lastRefreshTime = 0;
-  unsigned long animStartTime = 0;
-  long refreshMillis = 1000/50;
-  int numLeds = 38;
+int maxOut = 255;
+int animSpeed = 1000;
+unsigned long lastRefreshTime = 0;
+unsigned long animStartTime = 0;
+long refreshMillis = 1000/50;
+int numLeds = 38;
 
-  byte values[] =
-  {
-    0,0,0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0,0,0,
-    0,0,0,0,0,0,0,0
-  };
+byte values[] =
+{
+  0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0,0,0,
+  0,0,0,0,0,0,0,0
+};
 
-  byte channels[] =
-  {
-    1,2,3,4,5,6,7,8,9,10,
-    11,12,13,14,15,16,17,18,19,20,
-    21,22,23,24,25,26,27,28,29,30,
-    31,32,33,34,35,36,37,38
-  };
+byte channels[] =
+{
+  1,2,3,4,5,6,7,8,9,10,
+  11,12,13,14,15,16,17,18,19,20,
+  21,22,23,24,25,26,27,28,29,30,
+  31,32,33,34,35,36,37,38
+};
 
 elapsedMillis reportTimeout;
 elapsedMillis scanTimeout;
@@ -81,8 +76,8 @@ void setup()
 {
   Serial.begin(115200);
 
-initPins();
-initAudio();
+  initPins();
+  initAudio();
 
   DmxSimple.usePin(3);
   DmxSimple.maxChannel(40);
